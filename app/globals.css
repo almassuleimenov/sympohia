@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Твои переменные цветов и шрифтов... */
+  --color-ivory: #FFFFF0;
+  --color-offWhite: #FAF9F6;
+  --color-pearl: #F6EEE3;
+  --color-techWhite: #F5F5F4;
+  --color-whitesmoke: #F5F5F5;
+  
+  --color-graphite: #2c3e50;
+  --color-darkCharcoal: #1a1a2e;
+  --color-richBrown: #2c1810;
+  --color-sageGreen: #8A9A86;
+
+  --font-sans: var(--font-montserrat), sans-serif;
+  --font-serif: var(--font-literature), serif;
+}
+html.lenis, html.lenis body {
+  height: auto;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-offWhite text-graphite antialiased;
 }
