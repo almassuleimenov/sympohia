@@ -5,6 +5,7 @@ import Location from "@/components/Location"; // Добавили импорт
 import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Masterplan from "@/components/Masterplan";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <About />
       <Gallery />
+      <Masterplan />
       
       {/* Вставляем карту перед финальным призывом к действию */}
       <Location />
