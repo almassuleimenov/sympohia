@@ -1,51 +1,68 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
 const Masterplan: React.FC = () => {
   return (
-    <section id="masterplan" className="w-full py-24 bg-baseWhite relative overflow-hidden">
+    <section id="masterplan" className="w-full py-24 md:py-32 bg-baseWhite relative overflow-hidden">
       
-      <div className="container mx-auto px-6 md:px-12">
-        
-        {/* Заголовок блока */}
-        <div className="mb-12 md:mb-16">
-          <p 
-            style={{ fontFamily: "var(--font-annabelle)" }}
-            className="text-gold text-4xl md:text-5xl mb-2 drop-shadow-sm"
-          >
-            masterplan
-          </p>
+      {/* Шапка блока (остается в контейнере для выравнивания с остальным сайтом) */}
+      <div className="container mx-auto px-6 md:px-12 mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div>
+          {/* Декоративная линия и рукописный текст */}
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-[1px] bg-gold"></div>
+            <p 
+              style={{ fontFamily: "var(--font-annabelle)" }}
+              className="text-gold text-3xl md:text-4xl drop-shadow-sm"
+            >
+              masterplan
+            </p>
+          </div>
+          
           <h2 
             style={{ fontFamily: "var(--font-literature)" }}
-            className="text-navy text-4xl md:text-5xl uppercase tracking-widest"
+            className="text-navy text-5xl md:text-6xl uppercase tracking-widest leading-tight"
           >
-            Генеральный план
+            Генеральный <br /> план
           </h2>
         </div>
 
-        {/* 1. Убрали aspect-[...], теперь высота зависит от самой картинки.
-          2. Эффект паспарту (рамки) делаем через padding (p-2 md:p-4) на САМОМ контейнере, а не на картинке.
-        */}
-        <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-navy/10 bg-white group p-2 md:p-4">
-          
-          {/* Внутренняя обертка для скругления самой картинки, если нужна */}
-          <div className="relative w-full rounded-2xl overflow-hidden">
-            <Image
-              // Опять же, если у тебя файл называется Masterplan.jpg, поменяй расширение ниже
-              src="/assets/Masterplan.jpeg"
-              alt="Генеральный план ЖК Симфония"
-              // Базовые пропорции (16:9). Next.js будет использовать их для сохранения соотношения сторон
-              width={1920}
-              height={1080}
-              quality={100}
-              // Убрали fill. w-full и h-auto заставляют картинку вести себя отзывчиво и занимать ровно столько места, сколько нужно
-              className="w-full h-auto object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
-              draggable={false}
-            />
-          </div>
-          
+        {/* Описание генплана (текст из брошюры) */}
+        <div className="max-w-md border-l border-gold/30 pl-6">
+          <p className="font-sans text-navy/80 text-sm md:text-base leading-relaxed">
+            Продуманная архитектура и благоустроенная территория формируют ощущение уюта и приватности. Расположение объектов создано для вашего идеального комфорта.
+          </p>
         </div>
+      </div>
 
+      {/* САМ ГЕНПЛАН (Full-bleed / От края до края)
+        Никаких контейнеров, никаких скруглений. Только строгие линии (border-y).
+      */}
+      <div className="relative w-full border-y border-navy/10 bg-white group">
+        <Image
+          src="/assets/Masterplan.jpeg"
+          alt="Генеральный план ЖК Симфония"
+          width={1920}
+          height={1080}
+          // h-auto позволяет картинке сохранить свои естественные пропорции, 
+          // а w-full растягивает её на весь экран
+          className="w-full h-auto object-cover grayscale-[10%] transition-all duration-1000 group-hover:grayscale-0"
+          quality={100}
+          draggable={false}
+        />
+        
+        {/* Еле заметная внутренняя тень для объема */}
+        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.03)]"></div>
+      </div>
+
+      {/* Архитектурная сноска внизу */}
+      <div className="container mx-auto px-6 md:px-12 mt-6 flex justify-between items-center opacity-50">
+         <span className="w-10 h-[1px] bg-navy"></span>
+         <p className="text-[10px] uppercase tracking-[0.2em] text-navy font-bold">
+           Схема расположения объектов
+         </p>
       </div>
 
     </section>

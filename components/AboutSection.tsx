@@ -114,7 +114,10 @@ export default function AboutSection() {
 
   return (
     // Фон секции делаем теплым белым (baseWhite) для контраста с шапкой
-    <section id="about" className="w-full bg-baseWhite py-16 md:py-32 px-4 md:px-12 overflow-hidden">
+    <section 
+      id="about" 
+      className="w-full bg-baseWhite py-16 md:py-32 px-4 md:px-12 overflow-hidden relative z-20 -mt-12 md:-mt-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-20px_60px_rgba(0,0,0,0.15)]"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center">
         
         {/* Левая часть: Инфографика (Ось L-формы на десктопе) */}

@@ -7,6 +7,7 @@ import Masterplan from "@/components/Masterplan";
 import AboutSection from "@/components/AboutSection";
 import Gallery from "@/components/Gallery";
 import TelegramButton from "@/components/TelegramButton";
+import Layouts from "@/components/Layouts";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <AboutSection />
       <Masterplan />
       <Gallery />
+      <Layouts />
       {/* Вставляем карту перед финальным призывом к действию */}
       <Location />
       
