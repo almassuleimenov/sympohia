@@ -1,21 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Твои переменные цветов и шрифтов... */
-  --color-ivory: #FFFFF0;
-  --color-offWhite: #FAF9F6;
-  --color-pearl: #F6EEE3;
-  --color-techWhite: #F5F5F4;
-  --color-whitesmoke: #F5F5F5;
+  /* НОВАЯ ПАЛИТРА С КАРТИНКИ */
+  --color-navy: #222936;      /* Темно-синий фон */
+  --color-gold: #CB9F7D;      /* Бежево-золотой акцент */
+  --color-baseWhite: #F8F2ED; /* Теплый белый для светлых секций */
   
-  --color-graphite: #2c3e50;
-  --color-darkCharcoal: #1a1a2e;
-  --color-richBrown: #2c1810;
-  --color-sageGreen: #8A9A86;
-
-  --font-sans: var(--font-montserrat), sans-serif;
+  /* ШРИФТЫ */
+  --font-sans: var(--font-gilroy), sans-serif;
   --font-serif: var(--font-literature), serif;
+  --font-hand: var(--font-annabelle), cursive; 
 }
+
 html.lenis, html.lenis body {
   height: auto;
 }
@@ -37,5 +33,6 @@ html.lenis, html.lenis body {
 }
 
 body {
-  @apply bg-offWhite text-graphite antialiased;
+  /* Делаем сайт темным по умолчанию, как просит дизайнер (стиль vp.moscow) */
+  @apply bg-navy text-baseWhite antialiased;
 }

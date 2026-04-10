@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export default function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Показываем кнопку только после того, как пользователь немного прокрутил сайт
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -21,15 +20,15 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/79991234567" // ЗАМЕНИ НА СВОЙ НОМЕР (в международном формате без плюса)
+      href="https://wa.me/79991234567" 
       target="_blank"
       rel="noopener noreferrer"
+      /* Оставляем bottom-6 */
       className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:bg-[#20b858] ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
       }`}
       aria-label="Связаться в WhatsApp"
     >
-      {/* Простая SVG иконка WhatsApp */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
