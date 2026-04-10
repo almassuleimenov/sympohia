@@ -3,8 +3,11 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar"; 
 import SmoothScroll from "@/components/SmoothScroll";
+import Noise from "@/components/Noise";
+import CustomCursor from "@/components/CustomCursor";
+import Preloader from "@/components/Preloader";
 
-// 1. Основной шрифт (Gilroy) - Пути обновлены под твои файлы с суффиксом _0
+// 1. Основной шрифт (Gilroy)
 const gilroy = localFont({
   src: [
     { path: "./fonts/Gilroy-Regular_0.ttf", weight: "400", style: "normal" },
@@ -15,14 +18,14 @@ const gilroy = localFont({
   display: "swap",
 });
 
-// 2. Акцентный заголовочный шрифт (Literature Decor) - Имя совпадает
+// 2. Акцентный заголовочный шрифт (Literature Decor)
 const literature = localFont({
   src: "./fonts/Literature-Decor.ttf",
   variable: "--font-literature",
   display: "swap",
 });
 
-// 3. Декоративный рукописный шрифт (Annabelle) - Путь обновлен под префикс ofont.ru_
+// 3. Декоративный рукописный шрифт (Annabelle)
 const annabelle = localFont({
   src: "./fonts/ofont.ru_Annabelle.ttf", 
   variable: "--font-annabelle",
@@ -44,6 +47,14 @@ export default function RootLayout({
       <body
         className={`${gilroy.variable} ${literature.variable} ${annabelle.variable} font-sans min-h-screen relative`}
       >
+        {/* ПРЕЛОАДЕР */}
+        <Preloader />
+        {/* Добавляем наши новые фишки */}
+        <Noise />
+        <div className="hidden md:block">
+          <CustomCursor />
+        </div>
+
         <SmoothScroll>
           <Navbar />
           {children}
