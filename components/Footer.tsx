@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-baseWhite pt-20 pb-10 border-t border-gold/20 relative overflow-hidden">
+    <footer className="bg-navy text-baseWhite pt-12 md:pt-20 pb-8 md:pb-10 border-t border-gold/20 relative overflow-hidden">
       
       {/* Мягкое золотое свечение в углу для создания объема */}
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold/5 blur-[100px] rounded-full pointer-events-none"></div>

@@ -60,7 +60,7 @@ export default function Preloader() {
         <div className="overflow-hidden pb-2">
           <h1 
             style={{ fontFamily: "var(--font-literature)" }} 
-            className={`text-4xl md:text-5xl lg:text-6xl tracking-[0.2em] uppercase text-baseWhite drop-shadow-md transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.2em] uppercase text-baseWhite drop-shadow-md transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
               stage >= 2 ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
             }`}
           >
@@ -71,7 +71,7 @@ export default function Preloader() {
         {/* Анимация рукописного текста: из размытия в четкость */}
         <p 
           style={{ fontFamily: "var(--font-annabelle)" }}
-          className={`text-3xl md:text-4xl text-gold mt-2 ml-24 md:ml-32 transition-all duration-1000 ease-out ${
+          className={`text-2xl sm:text-3xl md:text-4xl text-gold mt-2 ml-16 sm:ml-20 md:ml-24 lg:ml-32 transition-all duration-1000 ease-out ${
             stage >= 3 ? "opacity-100 blur-0 translate-y-0" : "opacity-0 blur-sm translate-y-4"
           }`}
         >

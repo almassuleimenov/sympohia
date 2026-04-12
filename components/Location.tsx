@@ -8,23 +8,23 @@ export default function Location() {
         {/* Декоративная надпись рукописным шрифтом */}
         <p 
           style={{ fontFamily: "var(--font-annabelle)" }}
-          className="text-gold text-4xl md:text-5xl mb-2"
+          className="text-gold text-2xl md:text-4xl lg:text-5xl mb-2"
         >
           location
         </p>
 
         {/* Заголовок и список инфраструктуры */}
-        <div className="mb-16 md:flex md:justify-between md:items-end relative z-10">
+        <div className="mb-12 md:mb-16 md:flex md:justify-between md:items-end relative z-10">
           <div className="md:w-1/2">
             <h2 
               style={{ fontFamily: "var(--font-literature)" }} 
-              className="text-4xl md:text-5xl mb-6 leading-tight uppercase tracking-widest text-navy"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight uppercase tracking-widest text-navy"
             >
               В центре событий, <br /> вдали от суеты
             </h2>
           </div>
           
-          <div className="mt-8 md:mt-0 md:w-1/3 flex flex-col space-y-4 font-sans text-sm tracking-wide uppercase">
+          <div className="mt-8 md:mt-0 md:w-1/3 flex flex-col space-y-4 font-sans text-xs md:text-sm tracking-wide uppercase">
             <div className="flex justify-between border-b border-navy/20 pb-2">
               <span className="text-navy/70">Ботанический сад</span>
               <span className="font-semibold text-gold">5 мин</span>
@@ -41,7 +41,7 @@ export default function Location() {
         </div>
 
         {/* Интерактивная карта Яндекс */}
-        <div className="relative w-full h-[500px] md:h-[700px] rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-navy/10 bg-navy/5 group">
+        <div className="relative w-full h-[350px] md:h-[500px] lg:h-[700px] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-navy/10 bg-navy/5 group">
           <iframe 
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A605f2472189cfecbd9a95d299962fc62e881b0e2308684e1ee187e6c2ae7c5e6&source=constructor" 
             width="100%" 

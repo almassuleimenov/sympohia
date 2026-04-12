@@ -108,7 +108,7 @@ export default function Navbar() {
             className={`hidden md:block px-7 py-2.5 font-sans border transition-colors duration-300 ease-out text-xs font-semibold tracking-wider uppercase ${
               isScrolled
                 ? "border-navy text-navy hover:bg-navy hover:text-baseWhite rounded-full"
-                : "border-baseWhite text-baseWhite hover:bg-baseWhite hover:text-navy rounded-xl"
+                : "border-baseWhite text-baseWhite hover:bg-baseWhite hover:text-navy rounded-full"
             }`}
           >
             Связаться с нами
@@ -143,7 +143,7 @@ export default function Navbar() {
         <div className="mt-16 text-center text-navy/70 font-sans">
           <button 
             onClick={handleContactClick}
-            className="px-8 py-3 mb-6 border border-navy text-navy uppercase tracking-widest text-sm hover:bg-navy hover:text-baseWhite transition-colors duration-300 ease-out"
+            className="px-8 py-3 mb-6 border border-navy text-navy uppercase tracking-widest text-sm hover:bg-navy hover:text-baseWhite transition-colors duration-300 ease-out rounded-full"
           >
             Оставить заявку
           </button>

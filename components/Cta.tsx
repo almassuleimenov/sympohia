@@ -24,19 +24,19 @@ export default function Cta() {
         {/* Декоративная надпись */}
         <p 
           style={{ fontFamily: "var(--font-annabelle)" }}
-          className="text-gold text-4xl md:text-5xl mb-4 drop-shadow-md"
+          className="text-gold text-2xl md:text-4xl lg:text-5xl mb-4 drop-shadow-md"
         >
           next chapter
         </p>
 
         <h2 
           style={{ fontFamily: "var(--font-literature)" }} 
-          className="text-4xl md:text-6xl lg:text-7xl mb-6 tracking-wide uppercase"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 tracking-wide uppercase leading-tight px-4"
         >
           Готовы услышать <br className="hidden sm:block" /> свою Симфонию?
         </h2>
         
-        <p className="font-sans text-lg md:text-xl text-baseWhite/80 mb-12 font-light leading-relaxed max-w-2xl mx-auto">
+        <p className="font-sans text-sm sm:text-base md:text-lg lg:text-xl text-baseWhite/80 mb-8 md:mb-12 font-light leading-relaxed max-w-2xl mx-auto px-4">
           Оставьте заявку на получение закрытой презентации с актуальными планировками и ценами, или запишитесь на приватную экскурсию.
         </p>
 

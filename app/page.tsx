@@ -14,14 +14,16 @@ export default function Home() {
     <main className="relative flex flex-col">
       <Hero />
       <AboutSection />
-      <Masterplan />
+      
       <Gallery />
       <Layouts />
       {/* Вставляем карту перед финальным призывом к действию */}
       <Location />
       
+      <Masterplan />
       <Cta />
       <Footer />
+
       
       <WhatsAppButton />
       <TelegramButton />
