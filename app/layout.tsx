@@ -54,6 +54,7 @@ export default function RootLayout({
         <div className="hidden md:block">
           <CustomCursor />
         </div>
+        
 
         <SmoothScroll>
           <Navbar />

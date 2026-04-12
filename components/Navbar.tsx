@@ -133,7 +133,7 @@ export default function Navbar() {
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <div className="flex flex-col items-center space-y-8 text-navy text-2xl font-sans tracking-widest uppercase">
+        <div className="flex flex-col items-center space-y-6 text-navy text-xl font-sans tracking-widest uppercase">
           <a href="#about" onClick={(e) => handleSmoothScroll(e, "#about")} className="hover:text-gold transition-colors cursor-pointer">Проект</a>
           <a href="#gallery" onClick={(e) => handleSmoothScroll(e, "#gallery")} className="hover:text-gold transition-colors cursor-pointer">Галерея</a>
           <a href="#layouts" onClick={(e) => handleSmoothScroll(e, "#layouts")} className="hover:text-gold transition-colors cursor-pointer">Планировки</a>

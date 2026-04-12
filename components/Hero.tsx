@@ -44,14 +44,14 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/40 to-navy/90 backdrop-blur-[3px] z-10"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-20 mt-20 flex flex-col items-center">
+      <div className="container mx-auto px-6 relative z-20 mt-20 pb-24 md:pb-32 flex flex-col items-center">
         
         {/* Декоративная деталь рукописным шрифтом */}
         <p 
           style={{ fontFamily: "var(--font-annabelle)" }}
           className="animate-fade-up delay-100 text-2xl md:text-4xl lg:text-5xl text-gold mb-4 drop-shadow-lg"
         >
-          premium
+          Signature
         </p>
 
         {/* Заголовок */}

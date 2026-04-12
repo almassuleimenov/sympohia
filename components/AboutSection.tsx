@@ -82,24 +82,33 @@ const StatDisplay: React.FC<{ item: StatItem }> = ({ item }) => {
 
   return (
     <div ref={elementRef} className="flex flex-col relative group">
-      {/* Декоративная засечка стала золотой (gold) */}
-      <div className={`hidden md:block absolute bg-gold 
-        ${item.position === 'vertical' ? 'w-4 h-[2px] -left-12 top-4' : 'h-4 w-[2px] -bottom-[18px] left-4'}
-      `} />
+      {/* Засечки. Теперь они работают везде, включая мобильные.
+        Размеры засечек строго математически привязаны к padding родителя:
+        Vertical: уходит влево (на мобилке на 24px/w-6, на десктопе на 48px/w-12)
+        Horizontal: уходит вниз (на мобилке на 32px/h-8, на десктопе на 64px/h-16)
+      */}
+      <div 
+        className={`absolute bg-gold transition-all duration-500
+          ${item.position === 'vertical' 
+            ? 'h-[1px] w-6 md:w-12 -left-6 md:-left-12 top-5 md:top-6' 
+            : 'w-[1px] h-8 md:h-16 -bottom-8 md:-bottom-16 left-4 md:left-6'
+          }
+        `} 
+      />
       
-      <div className="flex items-baseline gap-1">
+      <div className="flex items-baseline gap-1 relative z-10">
         <span className="text-3xl sm:text-4xl md:text-5xl font-serif text-navy font-medium tracking-tight">
           {displayValue}
         </span>
         {item.suffix && (
           <span className="text-lg sm:text-xl md:text-2xl text-gold">{item.suffix}</span>
         )}
-        <span className="text-sm sm:text-lg md:text-xl text-navy font-medium ml-2">
+        <span className="text-sm sm:text-lg md:text-xl text-navy font-medium ml-1 md:ml-2">
           {item.label}
         </span>
       </div>
       {item.subLabel && (
-        <span className="text-xs sm:text-sm md:text-base text-navy/70 mt-1 max-w-[150px] leading-snug">
+        <span className="text-xs sm:text-sm md:text-base text-navy/70 mt-1 max-w-[120px] md:max-w-[150px] leading-snug">
           {item.subLabel}
         </span>
       )}
@@ -113,60 +122,71 @@ export default function AboutSection() {
   const horizontalStats = STATS.filter((s) => s.position === 'horizontal');
 
   return (
-    // Фон секции делаем теплым белым (baseWhite) для контраста с шапкой
     <section 
       id="about" 
-      className="w-full bg-baseWhite py-12 md:py-32 px-4 md:px-12 overflow-hidden relative z-20 -mt-12 md:-mt-20 rounded-t-[1.5rem] sm:rounded-t-[2rem] md:rounded-t-[2.5rem] lg:rounded-t-[4rem] shadow-[0_-20px_60px_rgba(0,0,0,0.15)]"
+      className="w-full bg-baseWhite py-16 md:py-32 px-4 md:px-12 overflow-hidden relative z-20 -mt-12 md:-mt-20 rounded-t-[1.5rem] sm:rounded-t-[2rem] md:rounded-t-[2.5rem] lg:rounded-t-[4rem] shadow-[0_-20px_60px_rgba(0,0,0,0.15)]"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start lg:items-center">
         
-        {/* Левая часть: Инфографика (Ось L-формы на десктопе) */}
-        <div className="md:col-span-7 relative">
-          {/* L-образная золотая линия (видна только на md и выше) */}
-          <div className="hidden md:block absolute left-0 top-0 bottom-10 w-[2px] bg-gold" />
-          <div className="hidden md:block absolute left-0 bottom-10 h-[2px] w-full max-w-[500px] bg-gold" />
+        {/* Левая часть: Инфографика (Жесткая система координат) */}
+        <div className="lg:col-span-7 relative w-full pt-4 pr-4">
+          
+          {/* Контейнер координатной плоскости */}
+          {/* Отступы (pl-6/pb-8 на мобилке, pl-12/pb-16 на десктопе) резервируют место для засечек */}
+          <div className="relative w-full pl-6 pb-8 md:pl-12 md:pb-16">
+            
+            {/* Ось Y (Вертикальная линия) - Отрисовывается всегда */}
+            <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gold" />
+            
+            {/* Ось X (Горизонтальная линия) - Отрисовывается всегда */}
+            <div className="absolute left-0 bottom-0 w-[90%] md:w-full h-[1px] bg-gold" />
 
-          <div className="pl-0 md:pl-8 flex flex-col justify-between h-full min-h-[300px] md:min-h-[400px]">
-            {/* Вертикальные элементы */}
-            <div className="flex flex-col gap-6 md:gap-10 lg:gap-16 mb-8 md:mb-0 pl-12">
-              {verticalStats.map((stat) => (
-                <StatDisplay key={stat.id} item={stat} />
-              ))}
-            </div>
+            {/* Изящная декоративная кривая (SVG), имитирующая скриншот */}
 
-            {/* Горизонтальные элементы */}
-            <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-24 md:pl-20 md:pb-16 pt-10 md:pt-0">
-              {horizontalStats.map((stat) => (
-                <StatDisplay key={stat.id} item={stat} />
-              ))}
+
+            <div className="flex flex-col justify-between h-full relative z-10">
+              
+              {/* Вертикальные элементы */}
+              <div className="flex flex-col gap-10 md:gap-16 mb-12 md:mb-20 pt-4">
+                {verticalStats.map((stat) => (
+                  <StatDisplay key={stat.id} item={stat} />
+                ))}
+              </div>
+
+              {/* Горизонтальные элементы (располагаются в ряд, над осью X) */}
+              <div className="flex flex-row gap-8 md:gap-24 pl-4 md:pl-10">
+                {horizontalStats.map((stat) => (
+                  <StatDisplay key={stat.id} item={stat} />
+                ))}
+              </div>
+              
             </div>
           </div>
         </div>
 
         {/* Правая часть: Текстовый блок */}
-        <div className="md:col-span-5 flex flex-col justify-start pt-2 md:pt-8">
-          <div className="mb-8 md:mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-navy uppercase mb-0 tracking-wide">
+        <div className="lg:col-span-5 flex flex-col justify-start lg:pl-8">
+          <div className="mb-6 md:mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-navy uppercase mb-0 tracking-wide">
               Симфония
             </h2>
-            {/* Вот тут мы применяем наш красивый рукописный шрифт Annabelle */}
             <p 
-              style={{ fontFamily: 'var(--font-annabelle)' }} 
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gold mt-1 md:mt-2 ml-2 md:ml-4 uppercase tracking-wider"
+              style={{ fontFamily: 'var(--font-annabelle, cursive)' }} 
+              className="text-3xl sm:text-4xl md:text-5xl text-gold mt-1 md:mt-2 ml-2 md:ml-4 uppercase tracking-wider"
             >
               residence
             </p>
           </div>
 
-          <p className="text-lg sm:text-xl md:text-2xl font-medium text-navy mb-6 md:mb-8 leading-relaxed max-w-md">
+          <p className="text-lg sm:text-xl md:text-2xl font-medium text-navy mb-4 md:mb-8 leading-relaxed max-w-md">
             Пространство, где хочется жить
           </p>
 
-          <p className="text-sm sm:text-base md:text-base text-navy/80 leading-relaxed max-w-md mb-3 md:mb-4">
+          <p className="text-base md:text-lg text-navy/80 leading-relaxed max-w-md mb-3 md:mb-4">
             ЖК «Симфония» — это современное пространство для жизни, где архитектура, комфорт и окружение создают гармоничную среду.
           </p>
           
-          <p className="text-sm sm:text-base md:text-base text-navy/80 leading-relaxed max-w-md">
+          <p className="text-base md:text-lg text-navy/80 leading-relaxed max-w-md">
             Продуманная архитектура и благоустроенная территория формируют ощущение уюта и приватности.
           </p>
         </div>

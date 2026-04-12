@@ -216,7 +216,7 @@ export default function Gallery() {
         {galleryImages.map((img, index) => (
           <div 
             key={img.id}
-            className={`relative shrink-0 h-full aspect-[3/2] snap-center rounded-3xl overflow-hidden group transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            className={`relative shrink-0 h-full aspect-[4/5] md:aspect-[3/2] snap-center rounded-3xl overflow-hidden group transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
             }`}
             style={{ transitionDelay: isVisible ? `${index * 150}ms` : "0ms" }}

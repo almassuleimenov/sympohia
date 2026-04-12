@@ -8,18 +8,21 @@ import AboutSection from "@/components/AboutSection";
 import Gallery from "@/components/Gallery";
 import TelegramButton from "@/components/TelegramButton";
 import Layouts from "@/components/Layouts";
+import Advantages from "@/components/Advantages";
 
 export default function Home() {
   return (
     <main className="relative flex flex-col">
       <Hero />
       <AboutSection />
+
+      <Advantages />
       
       <Gallery />
       <Layouts />
       {/* Вставляем карту перед финальным призывом к действию */}
       <Location />
-      
+
       <Masterplan />
       <Cta />
       <Footer />
