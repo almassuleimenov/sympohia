@@ -30,6 +30,7 @@ export default function Navbar() {
     const targetElement = document.querySelector(targetId);
     
     if (targetElement) {
+      // -100 пикселей, чтобы шапка не перекрывала заголовок блока
       const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({
         top: offsetTop,
@@ -61,7 +62,7 @@ export default function Navbar() {
               : "max-w-full bg-transparent text-baseWhite py-6 px-6 md:px-12 rounded-b-3xl"
           }`}
         >
-          {/* ЛОГОТИП: Жесткая привязка кастомного шрифта через переменную */}
+          {/* ЛОГОТИП */}
           <Link
             href="/"
             style={{ fontFamily: "var(--font-literature), serif" }}
@@ -70,14 +71,21 @@ export default function Navbar() {
             СИМФОНИЯ
           </Link>
 
-          {/* МЕНЮ: Использует стандартный Montserrat из layout */}
-          <div className="hidden md:flex space-x-10 text-sm font-sans font-medium tracking-wide uppercase">
+          {/* МЕНЮ (Добавлены "Преимущества") */}
+          <div className="hidden md:flex space-x-8 lg:space-x-10 text-xs lg:text-sm font-sans font-medium tracking-wide uppercase">
             <a 
               href="#about" 
               onClick={(e) => handleSmoothScroll(e, "#about")}
               className="hover:text-gold transition-colors duration-300 cursor-pointer"
             >
               Проект
+            </a>
+            <a 
+              href="#advantages" 
+              onClick={(e) => handleSmoothScroll(e, "#advantages")}
+              className="hover:text-gold transition-colors duration-300 cursor-pointer"
+            >
+              Преимущества
             </a>
             <a 
               href="#gallery" 
@@ -102,7 +110,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* КНОПКА: Плавная заливка цветом (без теней) */}
+          {/* КНОПКА */}
           <button
             onClick={handleContactClick}
             className={`hidden md:block px-7 py-2.5 font-sans border transition-colors duration-300 ease-out text-xs font-semibold tracking-wider uppercase ${
@@ -127,7 +135,7 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Мобильное меню */}
+      {/* Мобильное меню (Добавлены "Преимущества") */}
       <div
         className={`fixed inset-0 bg-baseWhite z-40 flex flex-col justify-center items-center transition-all duration-500 ease-in-out md:hidden ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -135,6 +143,7 @@ export default function Navbar() {
       >
         <div className="flex flex-col items-center space-y-6 text-navy text-xl font-sans tracking-widest uppercase">
           <a href="#about" onClick={(e) => handleSmoothScroll(e, "#about")} className="hover:text-gold transition-colors cursor-pointer">Проект</a>
+          <a href="#advantages" onClick={(e) => handleSmoothScroll(e, "#advantages")} className="hover:text-gold transition-colors cursor-pointer">Преимущества</a>
           <a href="#gallery" onClick={(e) => handleSmoothScroll(e, "#gallery")} className="hover:text-gold transition-colors cursor-pointer">Галерея</a>
           <a href="#layouts" onClick={(e) => handleSmoothScroll(e, "#layouts")} className="hover:text-gold transition-colors cursor-pointer">Планировки</a>
           <a href="#location" onClick={(e) => handleSmoothScroll(e, "#location")} className="hover:text-gold transition-colors cursor-pointer">Расположение</a>

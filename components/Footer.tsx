@@ -1,6 +1,24 @@
+"use client"; // Важно: добавляем "use client", так как теперь используем обработчики событий
+
 import Link from "next/link";
+import React from "react";
 
 export default function Footer() {
+  // Функция для плавного скролла к якорю
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      // -100 пикселей, чтобы шапка не перекрывала заголовок блока
+      const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <footer className="bg-navy text-baseWhite pt-12 md:pt-20 pb-8 md:pb-10 border-t border-gold/20 relative overflow-hidden">
       
@@ -11,7 +29,7 @@ export default function Footer() {
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           
-          {/* Колонка 1: Бренд (Занимает больше места для солидности) */}
+          {/* Колонка 1: Бренд */}
           <div className="md:col-span-4 lg:col-span-5 flex flex-col items-start">
             <Link href="/" className="group inline-flex flex-col items-start mb-6">
               <span style={{ fontFamily: "var(--font-literature)" }} className="text-4xl md:text-5xl uppercase tracking-widest text-baseWhite group-hover:text-gold transition-colors duration-300">
@@ -27,18 +45,19 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Колонка 2: Навигация */}
+          {/* Колонка 2: Навигация (Добавлен onClick={handleSmoothScroll} для плавности) */}
           <div className="md:col-span-3 lg:col-span-2">
             <h4 className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gold mb-6">Навигация</h4>
             <ul className="space-y-4 text-sm text-baseWhite/80">
-              <li><Link href="#about" className="hover:text-gold transition-colors">О проекте</Link></li>
-              <li><Link href="#gallery" className="hover:text-gold transition-colors">Галерея</Link></li>
-              <li><Link href="#layouts" className="hover:text-gold transition-colors">Планировки</Link></li>
-              <li><Link href="#location" className="hover:text-gold transition-colors">Расположение</Link></li>
+              <li><a href="#about" onClick={(e) => handleSmoothScroll(e, "#about")} className="hover:text-gold transition-colors cursor-pointer">О проекте</a></li>
+              <li><a href="#advantages" onClick={(e) => handleSmoothScroll(e, "#advantages")} className="hover:text-gold transition-colors cursor-pointer">Преимущества</a></li>
+              <li><a href="#gallery" onClick={(e) => handleSmoothScroll(e, "#gallery")} className="hover:text-gold transition-colors cursor-pointer">Галерея</a></li>
+              <li><a href="#layouts" onClick={(e) => handleSmoothScroll(e, "#layouts")} className="hover:text-gold transition-colors cursor-pointer">Планировки</a></li>
+              <li><a href="#location" onClick={(e) => handleSmoothScroll(e, "#location")} className="hover:text-gold transition-colors cursor-pointer">Расположение</a></li>
             </ul>
           </div>
 
-          {/* Колонка 3: Офис продаж (Реальные данные из брошюры) */}
+          {/* Колонка 3: Офис продаж */}
           <div className="md:col-span-5 lg:col-span-3">
             <h4 className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gold mb-6">Офис продаж</h4>
             <ul className="space-y-4 text-sm text-baseWhite/80">
