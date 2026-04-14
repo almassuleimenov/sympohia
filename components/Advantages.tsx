@@ -63,11 +63,11 @@ export default function Advantages() {
             <div className="flex items-center gap-4 mb-2">
               <div className="w-8 h-[1px] bg-gold"></div>
               <p 
-                style={{ fontFamily: "var(--font-annabelle)" }} 
-                className="text-gold text-3xl md:text-4xl uppercase tracking-wider"
-              >
-                privilege
-              </p>
+              style={{ fontFamily: 'var(--font-annabelle, cursive)' }} 
+              className="text-3xl sm:text-4xl md:text-5xl text-gold mt-1 md:mt-2 ml-2 md:ml-4"
+            >
+              Privilege
+            </p>
             </div>
             <h2 
               style={{ fontFamily: "var(--font-literature)" }} 

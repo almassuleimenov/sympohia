@@ -170,12 +170,12 @@ export default function AboutSection() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-navy uppercase mb-0 tracking-wide">
               Симфония
             </h2>
-            <p 
-              style={{ fontFamily: 'var(--font-annabelle, cursive)' }} 
-              className="text-3xl sm:text-4xl md:text-5xl text-gold mt-1 md:mt-2 ml-2 md:ml-4 uppercase tracking-wider"
-            >
-              residence
-            </p>
+          <p 
+            style={{ fontFamily: 'var(--font-annabelle, cursive)' }} 
+            className="text-3xl sm:text-4xl md:text-5xl text-gold mt-1 md:mt-2 ml-2 md:ml-4"
+          >
+            Residence
+          </p>
           </div>
 
           <p className="text-lg sm:text-xl md:text-2xl font-medium text-navy mb-4 md:mb-8 leading-relaxed max-w-md">

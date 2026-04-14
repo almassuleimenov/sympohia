@@ -3,39 +3,55 @@
 import { useState } from "react";
 import Image from "next/image";
 
-// Данные планировок (заменишь картинки на реальные чертежи)
+// Реальные данные планировок из твоих чертежей
 const layoutsData = [
   { 
-    id: '1k', 
-    name: '1-комнатная', 
-    area: '48.5', 
+    id: '1a', 
+    name: '1-комн. (38.9 м²)', 
+    area: '38.9', 
     rooms: 1,
-    features: ['Кухня-гостиная', 'Просторная гардеробная', 'Панорамная лоджия'], 
-    image: '/assets/TW_Corona003.jpg' // ЗАГЛУШКА: Замени на реальный чертеж (например, /assets/plan-1.png)
+    features: ['Кухня-гостиная 15.8 м²', 'Изолированная спальня', 'Уютная лоджия'], 
+    image: '/assets/plans/1a.jpg' // Убедись, что переименовал файлы на английские буквы!
   },
   { 
-    id: '2k', 
-    name: '2-комнатная', 
-    area: '74.2', 
+    id: '1v', 
+    name: '1-комн. (42.9 м²)', 
+    area: '42.9', 
+    rooms: 1,
+    features: ['Просторная кухня-гостиная', 'Раздельная прихожая', 'Вместительный балкон'], 
+    image: '/assets/plans/1v.jpg' 
+  },
+  { 
+    id: '2a', 
+    name: '2-комн. (62.5 м²)', 
+    area: '62.5', 
     rooms: 2,
-    features: ['Мастер-спальня', 'Два санузла', 'Угловое остекление'], 
-    image: '/assets/TW_Corona006.jpg' 
+    features: ['Две спальни', 'Раздельный санузел', 'Зона для гардероба'], 
+    image: '/assets/plans/2a.jpg' 
   },
   { 
-    id: '3k', 
-    name: '3-комнатная', 
-    area: '112.8', 
+    id: '2v', 
+    name: '2-комн. (64.6 м²)', 
+    area: '64.6', 
+    rooms: 2,
+    features: ['Кухня-гостиная 19.2 м²', 'Мастер-спальня', 'Два санузла'], 
+    image: '/assets/plans/2v.jpg' 
+  },
+  { 
+    id: '3a', 
+    name: '3-комн. (84.2 м²)', 
+    area: '84.2', 
     rooms: 3,
-    features: ['Кабинет', 'Вид на воду', 'Постирочная комната'], 
-    image: '/assets/TW_Corona007.jpg' 
+    features: ['Три спальни', 'Кухня-гостиная 21.4 м²', 'Два просторных санузла'], 
+    image: '/assets/plans/3a.jpg' 
   },
   { 
-    id: 'ph', 
-    name: 'Пентхаус', 
-    area: '185.0', 
-    rooms: 4,
-    features: ['Собственная терраса', 'Потолки 4.5м', 'Панорамный вид 360°'], 
-    image: '/assets/TW_Corona009.jpg' 
+    id: '3b', 
+    name: '3-комн. (90.6 м²)', 
+    area: '90.6', 
+    rooms: 3,
+    features: ['Мастер-спальня с санузлом', 'Две детские комнаты', 'Огромная лоджия'], 
+    image: '/assets/plans/3b.jpg' 
   }
 ];
 
@@ -63,7 +79,7 @@ export default function Layouts() {
             <div className="flex items-center gap-4 mb-2">
               <div className="w-8 h-[1px] bg-gold"></div>
               <p style={{ fontFamily: "var(--font-annabelle)" }} className="text-gold text-3xl md:text-4xl drop-shadow-sm">
-                layouts
+                Layouts
               </p>
             </div>
             <h2 style={{ fontFamily: "var(--font-literature)" }} className="text-4xl md:text-5xl uppercase tracking-widest leading-tight">
@@ -77,7 +93,7 @@ export default function Layouts() {
         </div>
 
         {/* Навигация по табам */}
-        <div className="flex overflow-x-auto hide-scrollbar gap-8 md:gap-12 border-b border-navy/10 mb-12 pb-4">
+        <div className="flex overflow-x-auto hide-scrollbar gap-6 md:gap-10 border-b border-navy/10 mb-12 pb-4">
           {layoutsData.map((tab) => (
             <button
               key={tab.id}
@@ -158,13 +174,14 @@ export default function Layouts() {
               </svg>
             </div>
 
-            <div className="relative w-full h-[300px] md:h-[500px]">
+            {/* Заменили h-[300px] на h-[400px] md:h-[600px], чтобы чертежи были крупными и читаемыми */}
+            <div className="relative w-full h-[400px] md:h-[600px]">
               <Image
                 src={activeTab.image}
                 alt={`Планировка ${activeTab.name}`}
                 fill
                 quality={100}
-                className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                className="object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </div>
           </div>

@@ -26,7 +26,7 @@ export default function Cta() {
           style={{ fontFamily: "var(--font-annabelle)" }}
           className="text-gold text-2xl md:text-4xl lg:text-5xl mb-4 drop-shadow-md"
         >
-          next chapter
+          Next chapter
         </p>
 
         <h2 

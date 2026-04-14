@@ -10,7 +10,7 @@ export default function Location() {
           style={{ fontFamily: "var(--font-annabelle)" }}
           className="text-gold text-2xl md:text-4xl lg:text-5xl mb-2"
         >
-          location
+          Location
         </p>
 
         {/* Заголовок и список инфраструктуры */}

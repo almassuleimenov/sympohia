@@ -90,7 +90,7 @@ export default function Query({ isActive, onClose }: QueryProps) {
             <div className="flex justify-between items-start mb-10">
               <div>
                 <p style={{ fontFamily: "var(--font-annabelle)" }} className="text-gold text-3xl mb-1">
-                  contact
+                  Contact
                 </p>
                 <h3 style={{ fontFamily: "var(--font-literature)" }} className="text-3xl sm:text-4xl text-baseWhite tracking-widest uppercase">
                   Ждем вас

@@ -192,7 +192,7 @@ export default function Gallery() {
                 style={{ fontFamily: "var(--font-annabelle)" }}
                 className="text-gold text-4xl md:text-5xl mb-2"
               >
-                gallery
+                Gallery
               </p>
               <h2 
                 style={{ fontFamily: "var(--font-literature)" }}
